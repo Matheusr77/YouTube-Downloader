@@ -1,4 +1,4 @@
-# YouTube Downloader GUI
+# YouTube Downloader
 
 ## Descrição
 Este é um aplicativo de interface gráfica (GUI) desenvolvido em Python utilizando PyQt6 e yt-dlp para baixar vídeos e áudios do YouTube.
