@@ -1,7 +1,7 @@
 # YouTube Downloader
 
 ## Descrição
-Este é um aplicativo de interface gráfica (GUI) desenvolvido em Python utilizando PyQt6 e yt-dlp para baixar vídeos e áudios do YouTube.
+Este é um programa desenvolvido em Python utilizando PyQt6 e yt-dlp para baixar vídeos e áudios do YouTube.
 
 ## Funcionalidades
 - Baixar vídeos na melhor qualidade disponível.
