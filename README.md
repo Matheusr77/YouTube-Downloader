@@ -21,6 +21,10 @@ Antes de rodar o aplicativo, certifique-se de ter instalado:
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
 
-# Instale as dependências
+## Instale as dependências
 pip install -r requirements.txt
+
+## License
+
+Este projeto está licenciado sob a licença MIT - consulte o arquivo ['LICENSE'](LICENSE) para mais detalhes.
 
