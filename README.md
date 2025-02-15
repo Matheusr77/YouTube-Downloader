@@ -4,16 +4,9 @@
 Este é um aplicativo de interface gráfica (GUI) desenvolvido em Python utilizando PyQt6 e yt-dlp para baixar vídeos e áudios do YouTube.
 
 ## Funcionalidades
-- Adicionar múltiplos links do YouTube.
 - Baixar vídeos na melhor qualidade disponível.
 - Baixar áudio em formato MP3 com qualidade de 320kbps.
 - Escolher o diretório de destino para os downloads.
-
-## Tecnologias Utilizadas
-- Python 3
-- PyQt6
-- yt-dlp
-- ffmpeg
 
 ## Requisitos
 Antes de rodar o aplicativo, certifique-se de ter instalado:
