@@ -16,13 +16,9 @@ Antes de rodar o aplicativo, certifique-se de ter instalado:
 - ffmpeg (deve estar no PATH do sistema)
 
 ## Instalação
-```bash
-# Clone este repositório
+### Clone este repositório
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
-
-## Instale as dependências
-pip install -r requirements.txt
 
 ## License
 
