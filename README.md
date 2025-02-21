@@ -15,11 +15,6 @@ Antes de rodar o aplicativo, certifique-se de ter instalado:
 - PyQt6 (`pip install PyQt6`)
 - ffmpeg (deve estar no PATH do sistema)
 
-## Instalação
-### Clone este repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
-
 ## License
 
 Este projeto está licenciado sob a licença MIT - consulte o arquivo ['LICENSE'](LICENSE) para mais detalhes.
