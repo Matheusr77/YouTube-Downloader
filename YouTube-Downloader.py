@@ -55,29 +55,44 @@ class YouTubeDownloader(QWidget):
         if not self.urls:
             QMessageBox.warning(self, "Aviso", "Nenhum link adicionado!")
             return
-        
-        destino = QFileDialog.getExistingDirectory(self, "Escolha o diretório de destino")
+
+        destino = QFileDialog.getExistingDirectory(self, "Escolha o diretório de destinos")
         if not destino:
             return
-        
+
         os.makedirs(destino, exist_ok=True)
-        ydl_opts = {"format": "bestaudio", "outtmpl": f"{destino}/%(title)s.%(ext)s"}
-        
+        ydl_opts = {
+            "format": "bestaudio",
+            "outtmpl": os.path.join(destino, "%(title)s.%(ext)s")
+        }
+
+        erros = []
+
         for url in self.urls:
-            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                info = ydl.extract_info(url, download=True)
-                video_path = ydl.prepare_filename(info)
-                
-            audio_path = os.path.splitext(video_path)[0] + ".mp3"
-            comando = [
-                "ffmpeg", "-i", video_path,
-                "-vn", "-ar", "44100", "-ac", "2", "-b:a", "320k",
-                audio_path
-            ]
-            subprocess.run(comando, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            os.remove(video_path)
-            
-        QMessageBox.information(self, "Concluído", "Todos os downloads de MP3 foram finalizados!")
+            try:
+                with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                    info = ydl.extract_info(url, download=True)
+                    video_path = ydl.prepare_filename(info)
+
+                audio_path = os.path.splitext(video_path)[0] + ".mp3"
+                comando = [
+                    "ffmpeg", "-i", video_path,
+                    "-vn", "-ar", "44100", "-ac", "2", "-b:a", "320k",
+                    audio_path
+                ]
+                subprocess.run(comando, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+                os.remove(video_path)
+
+            except Exception as e:
+                erros.append(f"{url} - {str(e)}")
+
+        if erros:
+            erro_msg = "\n\n".join(erros)
+            QMessageBox.warning(self, "Erros durante o download", f"Alguns downloads falharam:\n\n{erro_msg}")
+        else:
+            QMessageBox.information(self, "Concluído", "Todos os downloads de MP3 foram finalizados com sucesso!")
+
         self.urls.clear()
         self.links_display.clear()
 
